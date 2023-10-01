@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 
 // Components
 import Store from "./components/Store";
-import ProductDetails from "./components/ProductDetails";
 import ShopCart from "./components/ShopCart";
 
 // Redux
@@ -13,7 +12,6 @@ function App() {
   return (
     <Provider store={store}>
       <Switch>
-        <Route path="/products/:id" component={ProductDetails} />
         <Route path="/products" component={Store} />
         <Route path="/cart" component={ShopCart} />
         <Redirect to="/products" />

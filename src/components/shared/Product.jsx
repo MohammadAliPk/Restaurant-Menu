@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+
+// ant design
+import { Button } from "antd";
 
 // Functions
 import { shorten, isInCart, quantityCount } from "../../helper/functions";
@@ -16,9 +18,8 @@ import {
   removeItem,
 } from "../../features/cart/cartSlice";
 
-const Product = ({ productData }) => {
+const Product = ({ productData, modalHandler }) => {
   const state = useSelector((state) => state.cart);
-  console.log(state);
   const dispatch = useDispatch();
 
   return (
@@ -27,7 +28,6 @@ const Product = ({ productData }) => {
       <h3>{shorten(productData.title)}</h3>
       <p>{`${productData.price} $`}</p>
       <div>
-        <Link to={`/products/${productData.id}`}>Details</Link>
         <div>
           {quantityCount(state, productData.id) === 1 && (
             <button onClick={() => dispatch(removeItem(productData))}>
@@ -47,6 +47,13 @@ const Product = ({ productData }) => {
               Add to Cart
             </button>
           )}
+          <Button
+            type="primary"
+            onClick={() => modalHandler(productData.id)}
+            modalId={productData.id}
+          >
+            محتویات
+          </Button>
         </div>
       </div>
     </div>
