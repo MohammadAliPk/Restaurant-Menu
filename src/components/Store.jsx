@@ -70,34 +70,37 @@ const Store = () => {
         title="Title"
         onOk={() => dispatch(addItem(modalData))}
         onCancel={() => modalHandlerClose()}
-        footer={(_, { OkBtn, CancelBtn }) => (
+        footer={(_, { CancelBtn }) => (
           <>
-            <Button>Custom Button</Button>
             <CancelBtn />
             {quantityCount(state, modalId) === 1 && (
-              <button onClick={() => dispatch(removeItem(modalData))}>
-                <img src={trashIcon} alt="trash" />
-              </button>
+              <Button onClick={() => dispatch(removeItem(modalData))}>
+                <img src={trashIcon} alt="trash" style={{ width: "15px" }} />
+              </Button>
             )}
             {quantityCount(state, modalId) > 1 && (
-              <button onClick={() => dispatch(decreament(modalData))}>-</button>
+              <Button onClick={() => dispatch(decreament(modalData))}>-</Button>
             )}
             {quantityCount(state, modalId) > 0 && (
               <span>{quantityCount(state, modalId)}</span>
             )}
             {isInCart(state, modalId) ? (
-              <button onClick={() => dispatch(increament(modalData))}>+</button>
+              <Button onClick={() => dispatch(increament(modalData))}>+</Button>
             ) : (
-              <button onClick={() => dispatch(addItem(modalData))}>
+              <Button onClick={() => dispatch(addItem(modalData))}>
                 Add to Cart
-              </button>
+              </Button>
             )}
           </>
         )}
       >
         {modalData ? (
           <div>
-            <img src={modalData.image} alt="product" />
+            <img
+              src={modalData.image}
+              alt="product"
+              style={{ width: "100%" }}
+            />
             <div>
               <h3>{modalData.title}</h3>
               <p>{modalData.description}</p>
@@ -106,7 +109,6 @@ const Store = () => {
               </p>
               <div>
                 <span>{modalData.price} $</span>
-                <Link to="/products">Back to Shop</Link>
               </div>
             </div>{" "}
           </div>

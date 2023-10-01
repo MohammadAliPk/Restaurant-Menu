@@ -30,27 +30,27 @@ const Product = ({ productData, modalHandler }) => {
       <div>
         <div>
           {quantityCount(state, productData.id) === 1 && (
-            <button onClick={() => dispatch(removeItem(productData))}>
-              <img src={trashIcon} alt="trash" />
-            </button>
+            <Button onClick={() => dispatch(removeItem(productData))}>
+              <img src={trashIcon} alt="trash" style={{ width: "15px" }} />
+            </Button>
           )}
           {quantityCount(state, productData.id) > 1 && (
-            <button onClick={() => dispatch(decreament(productData))}>-</button>
+            <Button onClick={() => dispatch(decreament(productData))}>-</Button>
           )}
           {quantityCount(state, productData.id) > 0 && (
             <span>{quantityCount(state, productData.id)}</span>
           )}
           {isInCart(state, productData.id) ? (
-            <button onClick={() => dispatch(increament(productData))}>+</button>
+            <Button onClick={() => dispatch(increament(productData))}>+</Button>
           ) : (
-            <button onClick={() => dispatch(addItem(productData))}>
+            <Button onClick={() => dispatch(addItem(productData))}>
               Add to Cart
-            </button>
+            </Button>
           )}
           <Button
             type="primary"
             onClick={() => modalHandler(productData.id)}
-            modalId={productData.id}
+            modalid={productData.id}
           >
             محتویات
           </Button>
