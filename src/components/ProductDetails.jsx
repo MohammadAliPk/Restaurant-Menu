@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 
 const ProductDetails = (props) => {
   const id = props.match.params.id;
-  const data = useSelector((state) => state.productsState.products);
+  const data = useSelector((state) => state.products.products);
+  console.log(data);
   const product = data[id - 1];
   const { image, title, description, price, category } = product;
 

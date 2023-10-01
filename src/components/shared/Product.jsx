@@ -10,14 +10,15 @@ import trashIcon from "../../assets/icons/trash.svg";
 
 // Actions
 import {
+  increament,
+  decreament,
   addItem,
   removeItem,
-  increase,
-  decrease,
-} from "../../redux/cart/cartAction";
+} from "../../features/cart/cartSlice";
 
 const Product = ({ productData }) => {
-  const state = useSelector((state) => state.cartState);
+  const state = useSelector((state) => state.cart);
+  console.log(state);
   const dispatch = useDispatch();
 
   return (
@@ -34,13 +35,13 @@ const Product = ({ productData }) => {
             </button>
           )}
           {quantityCount(state, productData.id) > 1 && (
-            <button onClick={() => dispatch(decrease(productData))}>-</button>
+            <button onClick={() => dispatch(decreament(productData))}>-</button>
           )}
           {quantityCount(state, productData.id) > 0 && (
             <span>{quantityCount(state, productData.id)}</span>
           )}
           {isInCart(state, productData.id) ? (
-            <button onClick={() => dispatch(increase(productData))}>+</button>
+            <button onClick={() => dispatch(increament(productData))}>+</button>
           ) : (
             <button onClick={() => dispatch(addItem(productData))}>
               Add to Cart

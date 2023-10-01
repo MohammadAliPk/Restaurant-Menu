@@ -8,8 +8,12 @@ import { shorten } from "../../helper/functions";
 import trashIcon from "../../assets/icons/trash.svg";
 
 // Actions
-import { removeItem, decrease, increase } from "../../redux/cart/cartAction";
-
+import {
+  increament,
+  decreament,
+  addItem,
+  removeItem,
+} from "../../features/cart/cartSlice";
 const Cart = (props) => {
   const dispatch = useDispatch();
   const { image, title, price, quantity } = props.data;
@@ -26,13 +30,13 @@ const Cart = (props) => {
       </div>
       <div>
         {quantity > 1 ? (
-          <button onClick={() => dispatch(decrease(props.data))}>-</button>
+          <button onClick={() => dispatch(decreament(props.data))}>-</button>
         ) : (
           <button onClick={() => dispatch(removeItem(props.data))}>
             <img src={trashIcon} alt="trash" />
           </button>
         )}
-        <button onClick={() => dispatch(increase(props.data))}>+</button>
+        <button onClick={() => dispatch(increament(props.data))}>+</button>
       </div>
     </div>
   );

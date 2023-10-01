@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 // Components
 import Product from "./shared/Product";
 import Loader from "./shared/Loader";
 
 // redux
-import { fetchProducts } from "../redux/products/productsAction";
-
+import { fetchProducts } from "../features/products/productsSlice";
 const Store = () => {
   const dispatch = useDispatch();
-  const productsState = useSelector((state) => state.productsState);
+  const productsState = useSelector((state) => state.products);
 
   useEffect(() => {
     if (!productsState.products.length) dispatch(fetchProducts());
@@ -18,6 +18,7 @@ const Store = () => {
 
   return (
     <div>
+      <Link to="/cart">سبد شما</Link>
       {productsState.loading ? (
         <Loader />
       ) : productsState.error ? (

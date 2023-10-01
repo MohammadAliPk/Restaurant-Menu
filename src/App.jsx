@@ -7,7 +7,7 @@ import ProductDetails from "./components/ProductDetails";
 import ShopCart from "./components/ShopCart";
 
 // Redux
-import store from "./redux/store";
+import store from "./apps/store";
 
 function App() {
   return (

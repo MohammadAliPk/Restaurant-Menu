@@ -6,12 +6,12 @@ import { useSelector, useDispatch } from "react-redux";
 import Cart from "./shared/Cart";
 
 // Ations
-import { clear, checkout } from "../redux/cart/cartAction";
+import { clear } from "../features/cart/cartSlice";
 
 const ShopCart = () => {
   // const { state, dispatch } = useContext(CartContext);
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.cartState);
+  const state = useSelector((state) => state.cart);
 
   return (
     <div>
@@ -31,7 +31,6 @@ const ShopCart = () => {
           </p>
           <div>
             <button onClick={() => dispatch(clear())}>Clear</button>
-            <button onClick={() => dispatch(checkout())}>Checkout</button>
           </div>
         </div>
       )}
