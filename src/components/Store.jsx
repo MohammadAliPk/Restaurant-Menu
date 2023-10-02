@@ -27,7 +27,7 @@ import { isInCart, quantityCount } from "../helper/functions";
 import trashIcon from "../assets/icons/trash.svg";
 
 // css
-import "./store.module.css";
+import styles from "./store.module.css";
 
 const Store = () => {
   const [open, setOpen] = useState(false);
@@ -65,13 +65,15 @@ const Store = () => {
             <div></div>
           </nav>
           <Link to="/cart">سبد شما</Link>
-          {productsState.products.map((product) => (
-            <Product
-              key={product.id}
-              productData={product}
-              modalHandler={modalHandler}
-            />
-          ))}
+          <Row gutter={[15, 15]} className={styles.row}>
+            {productsState.products.map((product) => (
+              <Product
+                key={product.id}
+                productData={product}
+                modalHandler={modalHandler}
+              />
+            ))}
+          </Row>
         </>
       )}
       <Modal
