@@ -1,0 +1,8 @@
+@font-face {
+  font-family: iranSans;
+  src: url(../assets/fonts/Sans\ a4fran3.ttf);
+}
+
+* {
+  font-family: iranSans;
+}

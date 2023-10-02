@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 // ant design
-import { Button, Modal } from "antd";
+import { Button, Modal, Row } from "antd";
 
 // Components
 import Product from "./shared/Product";
@@ -25,6 +25,9 @@ import { isInCart, quantityCount } from "../helper/functions";
 
 // Icons
 import trashIcon from "../assets/icons/trash.svg";
+
+// css
+import "./store.module.css";
 
 const Store = () => {
   const [open, setOpen] = useState(false);
@@ -51,19 +54,25 @@ const Store = () => {
 
   return (
     <div>
-      <Link to="/cart">سبد شما</Link>
       {productsState.loading ? (
         <Loader />
       ) : productsState.error ? (
         <p>Somethin went wrong</p>
       ) : (
-        productsState.products.map((product) => (
-          <Product
-            key={product.id}
-            productData={product}
-            modalHandler={modalHandler}
-          />
-        ))
+        <>
+          <nav>
+            <div></div>
+            <div></div>
+          </nav>
+          <Link to="/cart">سبد شما</Link>
+          {productsState.products.map((product) => (
+            <Product
+              key={product.id}
+              productData={product}
+              modalHandler={modalHandler}
+            />
+          ))}
+        </>
       )}
       <Modal
         open={open}
