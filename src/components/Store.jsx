@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 // ant design
-import { Button, Modal, Row } from "antd";
+import { Button, Image, Modal, Row } from "antd";
 
 // Components
 import Product from "./shared/Product";
@@ -24,10 +24,13 @@ import {
 import { isInCart, quantityCount } from "../helper/functions";
 
 // Icons
-import trashIcon from "../assets/icons/trash.svg";
+import trashIcon from "../assets/icons/trash-icon.png";
 
 // css
 import styles from "./store.module.css";
+
+// image
+import LoaderImg from "../gif/loading.gif";
 
 const Store = () => {
   const [open, setOpen] = useState(false);
@@ -53,75 +56,100 @@ const Store = () => {
   };
 
   return (
-    <div>
+    <div className={styles.productBody}>
       {productsState.loading ? (
         <Loader />
       ) : productsState.error ? (
         <p>Somethin went wrong</p>
       ) : (
         <>
-          <nav>
-            <div></div>
-            <div></div>
-          </nav>
-          <Link to="/cart">سبد شما</Link>
-          <Row gutter={[15, 15]} className={styles.row}>
-            {productsState.products.map((product) => (
-              <Product
-                key={product.id}
-                productData={product}
-                modalHandler={modalHandler}
-              />
-            ))}
-          </Row>
+          <div className={styles.productContainer}>
+            <Row gutter={[15, 15]} className={styles.row}>
+              {productsState.products.map((product) => (
+                <Product
+                  key={product.id}
+                  productData={product}
+                  modalHandler={modalHandler}
+                />
+              ))}
+            </Row>
+          </div>
         </>
       )}
       <Modal
         open={open}
-        title="Title"
+        title="جزئیات"
         onOk={() => dispatch(addItem(modalData))}
         onCancel={() => modalHandlerClose()}
         footer={(_, { CancelBtn }) => (
-          <>
-            <CancelBtn />
+          <div className={styles.modalFooter}>
             {quantityCount(state, modalId) === 1 && (
-              <Button onClick={() => dispatch(removeItem(modalData))}>
-                <img src={trashIcon} alt="trash" style={{ width: "15px" }} />
+              <Button
+                className={styles.modalFooterBtn}
+                onClick={() => dispatch(removeItem(modalData))}
+              >
+                <img src={trashIcon} alt="trash" />
               </Button>
             )}
             {quantityCount(state, modalId) > 1 && (
-              <Button onClick={() => dispatch(decreament(modalData))}>-</Button>
-            )}
-            {quantityCount(state, modalId) > 0 && (
-              <span>{quantityCount(state, modalId)}</span>
-            )}
-            {isInCart(state, modalId) ? (
-              <Button onClick={() => dispatch(increament(modalData))}>+</Button>
-            ) : (
-              <Button onClick={() => dispatch(addItem(modalData))}>
-                Add to Cart
+              <Button
+                className={styles.modalFooterBtn}
+                onClick={() => dispatch(decreament(modalData))}
+              >
+                -
               </Button>
             )}
-          </>
+            {quantityCount(state, modalId) > 0 && (
+              <span className={styles.modalQuntity}>
+                {quantityCount(state, modalId)}
+              </span>
+            )}
+            {isInCart(state, modalId) ? (
+              <Button
+                className={styles.modalFooterBtn}
+                onClick={() => dispatch(increament(modalData))}
+              >
+                +
+              </Button>
+            ) : (
+              <Button
+                className={styles.addToCartBtn}
+                onClick={() => dispatch(addItem(modalData))}
+              >
+                افزودن به یادداشت سفارش
+              </Button>
+            )}
+          </div>
         )}
       >
         {modalData ? (
           <div>
-            <img
+            <Image
+              preview={false}
               src={modalData.image}
               alt="product"
-              style={{ width: "100%" }}
+              width="100%"
+              height="auto"
+              placeholder={
+                <img
+                  style={{ width: "100%", height: "auto" }}
+                  src={LoaderImg}
+                />
+              }
             />
             <div>
               <h3>{modalData.title}</h3>
+              <div>
+                <span className={styles.modalPrice}>
+                  {modalData.price} هزار تومان
+                </span>
+              </div>
+              <h4>محتویات :</h4>
               <p>{modalData.description}</p>
               <p>
-                <span>Category:</span> {modalData.category}
+                <span>دسته بندی:</span> {modalData.category}
               </p>
-              <div>
-                <span>{modalData.price} $</span>
-              </div>
-            </div>{" "}
+            </div>
           </div>
         ) : (
           "loading..."

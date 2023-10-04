@@ -8,6 +8,8 @@ import Cart from "./shared/Cart";
 // Ations
 import { clear } from "../features/cart/cartSlice";
 
+import plateIcon from "../assets/icons/plate.png";
+
 const ShopCart = () => {
   // const { state, dispatch } = useContext(CartContext);
   const dispatch = useDispatch();
@@ -37,8 +39,13 @@ const ShopCart = () => {
 
       {state.itemsCounter === 0 && !state.checkout && (
         <div>
-          <h3>Want to buy?</h3>
-          <Link to="/products">Go to shop</Link>
+          <h3>یادداشت سفارشات خالی می باشد</h3>
+          <img
+            src={plateIcon}
+            alt=""
+            style={{ width: "200px", height: "auto" }}
+          />
+          <Link to="/products">بازگشت به منو</Link>
         </div>
       )}
 
