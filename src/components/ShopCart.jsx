@@ -10,14 +10,16 @@ import { clear } from "../features/cart/cartSlice";
 
 import plateIcon from "../assets/icons/plate.png";
 
+// styles
+import styles from "./ShopCart.module.css";
+
 const ShopCart = () => {
-  // const { state, dispatch } = useContext(CartContext);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cart);
 
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.cartContainer}>
         {state.selectedItems.map((item) => (
           <Cart key={item.id} data={item} />
         ))}
@@ -31,14 +33,16 @@ const ShopCart = () => {
           <p>
             <span>Total Payments:</span> {state.total} $
           </p>
-          <div>
-            <button onClick={() => dispatch(clear())}>Clear</button>
+          <div className={styles.buttonContainer}>
+            <button onClick={() => dispatch(clear())} className={styles.clear}>
+              Clear
+            </button>
           </div>
         </div>
       )}
 
       {state.itemsCounter === 0 && !state.checkout && (
-        <div>
+        <div className={styles.complete}>
           <h3>یادداشت سفارشات خالی می باشد</h3>
           <img
             src={plateIcon}

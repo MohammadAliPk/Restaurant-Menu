@@ -14,21 +14,25 @@ import {
   addItem,
   removeItem,
 } from "../../features/cart/cartSlice";
+
+// Style
+import styles from "./Cart.module.css";
+
 const Cart = (props) => {
   const dispatch = useDispatch();
   const { image, title, price, quantity } = props.data;
 
   return (
-    <div>
-      <img src={image} />
+    <div className={styles.container}>
+      <img src={image} className={styles.productImage} />
       <div>
         <h3>{shorten(title)}</h3>
         <p>{price} $</p>
       </div>
       <div>
-        <span>{quantity}</span>
+        <span className={styles.quantity}>{quantity}</span>
       </div>
-      <div>
+      <div className={styles.buttonContainer}>
         {quantity > 1 ? (
           <button onClick={() => dispatch(decreament(props.data))}>-</button>
         ) : (
