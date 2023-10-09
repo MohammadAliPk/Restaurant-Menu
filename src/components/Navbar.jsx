@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import styles from "./Navbar.module.css";
 import icon from "../assets/icons/icons.png";
+import LogoImg from "../assets/images/logo.png";
 
 SwiperCore.use([Pagination]);
 
@@ -23,9 +24,15 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={styles.upperHeader}>
-        <div className={styles.logo}>logo</div>
-        <Link to="/cart">سفارشات</Link>
+      <div className={styles.cartHeader}>
+        <div className={styles.logoContainer}>
+          <img src={LogoImg} alt="logo" />
+          <p>
+            Game
+            <span>Republic</span>
+          </p>
+        </div>
+        <Link to="/cart">یادداشت سفارش</Link>
       </div>
       <Swiper
         slidesPerView={"auto"}

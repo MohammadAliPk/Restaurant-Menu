@@ -1,43 +1,75 @@
 * {
-    margin: 0;
+  margin: 0;
 }
 
 .upperHeader {
-    background-color: #343434;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding: 1%;
+  background-color: #343434;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
 }
 
-
-
 #swiper {
-    background-color: #343434;
-    height: 170px;
-
+  background-color: #343434;
+  height: 170px;
 }
 
 .swiperItem {
-    background-color: #434343;
-    height: 150px;
-    width: 135px !important;
-    color: #fff;
-    border-radius: 5px;
-    text-align: center;
+  background-color: #434343;
+  height: 150px;
+  width: 135px !important;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .swiperItem img {
-    width: 80px;
-    height: 80px;
-    margin: 10px 0 10px 0;
-    border-bottom: 2px solid #545454;
+  width: 80px;
+  height: 80px;
+  margin: 10px 0 10px 0;
+  border-bottom: 2px solid #545454;
 }
 
 .info {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .redBorder {
-    border: 3px dashed #d9d9d9;
+  border: 3px dashed #d9d9d9;
+}
+
+.cartHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5%;
+  background-color: #343434;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer img {
+  display: inline-block;
+  width: 55px;
+  height: auto;
+}
+
+.logoContainer p {
+  color: #fff;
+  font-size: 25px;
+  margin-left: 8px;
+}
+
+.logoContainer p span {
+  color: #e03434;
+  margin-left: 3px;
+}
+
+.cartHeader a {
+  color: #fff;
+  text-decoration: none;
 }

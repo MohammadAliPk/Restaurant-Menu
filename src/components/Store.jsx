@@ -8,6 +8,7 @@ import { Button, Image, Modal, Row } from "antd";
 // Components
 import Product from "./shared/Product";
 import Loader from "./shared/Loader";
+import Navbar from "./Navbar";
 
 // redux
 import { fetchProducts } from "../features/products/productsSlice";
@@ -63,6 +64,7 @@ const Store = () => {
         <p>Somethin went wrong</p>
       ) : (
         <>
+          <Navbar />
           <div className={styles.productContainer}>
             <Row gutter={[15, 15]} className={styles.row}>
               {productsState.products.map((product) => (

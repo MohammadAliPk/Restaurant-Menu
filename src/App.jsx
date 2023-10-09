@@ -7,12 +7,10 @@ import ShopCart from "./components/ShopCart";
 
 // Redux
 import store from "./apps/store";
-import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Provider store={store}>
-      <Navbar />
       <Switch>
         <Route path="/products" component={Store} />
         <Route path="/cart" component={ShopCart} />
