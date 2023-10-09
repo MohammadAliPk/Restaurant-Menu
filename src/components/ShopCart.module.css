@@ -30,9 +30,8 @@ body {
 
 .buttonContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin: 50px 20px 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .checkout {
@@ -55,17 +54,39 @@ body {
   background-color: #167d32;
 }
 
+.hezarToman {
+  font-size: 8px;
+  margin-right: 7px;
+}
+
 .clear {
-  cursor: pointer;
-  color: #34a853;
   background: none;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
   border: none;
-  transition: all 0.2s ease;
-  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  width: 100%;
 }
 
 .clear:hover {
-  color: #167d32;
+  box-shadow: 0 1px 5px #0000000f;
+}
+
+.clear img {
+  width: 25px;
+  height: 25px;
+  opacity: 0.6;
+}
+
+.clear p {
+  color: #868686 !important;
+  font-size: 12px !important;
 }
 
 .complete h3 {
@@ -100,20 +121,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px 0px #00000012;
+  padding: 18px 18px;
 }
 
 .emptyCart a {
   text-decoration: none;
-  border: 2px solid #dbdbdb;
+  background-color: #f9f9f9;
+  width: 100%;
   border-radius: 10px;
   padding: 10px 10px;
   color: #000;
   font-weight: bold;
   transition: all 0.3s ease;
-}
-
-.emptyCart a:hover {
-  border: 2px solid #4d4d4d;
+  text-align: center;
 }
 
 .cartHeader {
@@ -152,6 +175,8 @@ body {
 }
 
 .total {
+  position: sticky;
+  top: 0;
   background-color: #fff;
   border-radius: 10px;
   margin-right: 10px;
@@ -159,9 +184,27 @@ body {
   padding: 20px 10px;
 }
 
-.totalPayment p {
-  text-align: right;
+.totalPayment h3 {
+  text-align: center;
   font-weight: bold;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.totalPayment p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.totalPayment p:nth-child(2) {
+  font-size: 30px;
+  color: green;
+}
+
+.totalPayment div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 1200px) {

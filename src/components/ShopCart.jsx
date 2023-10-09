@@ -17,6 +17,7 @@ import styles from "./ShopCart.module.css";
 //icon
 import LogoImg from "../assets/images/logo.png";
 import plateIcon from "../assets/icons/plate.png";
+import trashIcon from "../assets/icons/trash-icon.png";
 
 const ShopCart = () => {
   const dispatch = useDispatch();
@@ -37,26 +38,32 @@ const ShopCart = () => {
       <div className={styles.container}>
         <Row>
           <Col xs={9}>
-            <div className={styles.total}>
-              {state.itemsCounter > 0 && (
+            {state.itemsCounter > 0 && (
+              <div className={styles.total}>
                 <div className={styles.totalPayment}>
-                  <p>
-                    <span>تعداد سفارشات :</span> {state.itemsCounter}
-                  </p>
-                  <p>
-                    <span>مجموع سفارشات :</span> {state.total}
-                  </p>
+                  <h3>تعداد سفارشات</h3>
+                  <p>{state.itemsCounter}</p>
+                  <h3>مجموع سفارشات</h3>
+                  <div>
+                    <span className={styles.hezarToman}>
+                      هــــزار
+                      <br />
+                      تـــومان
+                    </span>
+                    <p>{state.total}</p>
+                  </div>
                   <div className={styles.buttonContainer}>
                     <button
                       onClick={() => dispatch(clear())}
                       className={styles.clear}
                     >
-                      Clear
+                      <img src={trashIcon} alt="trash" />
+                      <p>پاک کردن همه</p>
                     </button>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </Col>
           <Col xs={15}>
             <div className={styles.receipt}>
