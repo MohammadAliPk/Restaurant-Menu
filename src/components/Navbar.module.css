@@ -13,15 +13,24 @@
 #swiper {
   background-color: #343434;
   height: 170px;
+  display: flex;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -5px;
+  z-index: 10;
+  min-height: 70px;
+  padding: 0 1rem;
+  box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 11%);
 }
 
 .swiperItem {
   background-color: #434343;
-  height: 150px;
-  width: 135px !important;
   color: #fff;
   border-radius: 5px;
   text-align: center;
+  height: 150px;
+  width: 135px !important;
 }
 
 .swiperItem img {
@@ -35,8 +44,15 @@
   font-size: 20px;
 }
 
-.redBorder {
-  border: 3px dashed #d9d9d9;
+.active {
+  background-color: #434343;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  height: 150px !important;
+  width: 135px !important;
+  border: 3px dashed #d9d9d9 !important;
+  display: block !important;
 }
 
 .cartHeader {
@@ -72,4 +88,14 @@
 .cartHeader a {
   color: #fff;
   text-decoration: none;
+}
+
+.link a {
+  background-color: #434343;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  height: 150px;
+  width: 135px !important;
+  display: block !important;
 }

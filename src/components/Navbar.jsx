@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Pagination } from "swiper/modules";
@@ -12,15 +12,15 @@ import LogoImg from "../assets/images/logo.png";
 SwiperCore.use([Pagination]);
 
 const Navbar = () => {
-  const [selectedItem, setSelectedItem] = useState(null);
   const swiperRef = useRef(null);
 
   const handleItemClick = (item) => {
-    setSelectedItem(item);
     if (swiperRef.current) {
       swiperRef.current.swiper.slideTo(item - 1);
     }
   };
+
+  const testArray = [1, 2, 3, 4, 5, 6];
 
   return (
     <>
@@ -43,16 +43,19 @@ const Navbar = () => {
         id={styles.swiper}
         ref={swiperRef}
       >
-        {[1, 2, 3, 4].map((item) => (
-          <SwiperSlide
-            key={item}
-            className={`${styles.swiperItem} ${
-              selectedItem === item ? styles.redBorder : styles.selectedItem
-            }`}
-            onClick={() => handleItemClick(item)}
-          >
-            <img src={icon} alt="icon" />
-            <div className={styles.info}>تخم ها</div>
+        {testArray.map((item) => (
+          <SwiperSlide key={item} className={styles.swiperItem}>
+            <Link
+              className={styles.link}
+              activeClass={styles.active}
+              smooth
+              spy
+              to={item}
+              onClick={() => handleItemClick(item)}
+            >
+              <img src={icon} alt="icon" />
+              <div className={styles.info}>تخم ها</div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 // ant design
 import { Button, Image, Modal, Row } from "antd";
@@ -58,6 +57,8 @@ const Store = () => {
 
   return (
     <div className={styles.productBody}>
+      <section id="4">ABOUT</section>
+
       {productsState.loading ? (
         <Loader />
       ) : productsState.error ? (
@@ -157,6 +158,9 @@ const Store = () => {
           "loading..."
         )}
       </Modal>
+      <section id="3">ABOUT</section>
+      <div style={{ height: "500px" }}></div>
+      <section id="2">ABOUT</section>
     </div>
   );
 };
