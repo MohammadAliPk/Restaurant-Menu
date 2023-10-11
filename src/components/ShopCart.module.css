@@ -5,9 +5,8 @@ body {
 .container {
   justify-content: center;
   transition: all 0.2s ease;
-  padding: 50px 0 0;
   max-width: 800px;
-  margin: auto;
+  margin: 75px auto 150px;
 }
 
 .payments {
@@ -140,11 +139,17 @@ body {
 }
 
 .cartHeader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 5px 5%;
   background-color: #343434;
   align-items: center;
+  z-index: 4;
+  box-shadow: 0 2px 10px 0px #00000012;
 }
 
 .logoContainer {
@@ -160,7 +165,7 @@ body {
 
 .logoContainer p {
   color: #fff;
-  font-size: 25px;
+  font-size: 16px;
   margin-left: 8px;
 }
 
@@ -172,11 +177,51 @@ body {
 .cartHeader a {
   color: #fff;
   text-decoration: none;
+  font-size: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .logoContainer p {
+    color: #fff;
+    font-size: 25px;
+    margin-left: 8px;
+  }
+
+  .cartHeader a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.totalContainer {
+  display: none;
+}
+
+.totalMobile {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: #fff;
+  justify-content: center;
+  border-radius: 15px 15px 0 0;
+  border: 2px solid #eee;
+}
+
+@media only screen and (min-width: 768px) {
+  .totalContainer {
+    display: block;
+  }
+
+  .totalMobile {
+    display: none;
+  }
 }
 
 .total {
   position: sticky;
-  top: 0;
+  top: 80px;
   background-color: #fff;
   border-radius: 10px;
   margin-right: 10px;
@@ -207,37 +252,49 @@ body {
   justify-content: center;
 }
 
-@media (max-width: 1200px) {
-  .container {
-    margin: 120px 80px 50px;
-  }
+.totalMobilePaymentContainer {
+  display: flex;
+  direction: rtl;
+  width: 100%;
+  justify-content: space-between;
+  padding: 15px;
 }
 
-@media (max-width: 1050px) {
-  .container {
-    flex-direction: column-reverse;
-    margin: 120px 80px 50px;
-    align-items: center;
-  }
-
-  .cartContainer {
-    width: 100%;
-  }
-
-  .payments {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+.totalMobilePayment {
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin: 120px 40px 50px;
-  }
+.totalMobilePayment div {
+  display: flex;
 }
 
-@media (max-width: 555px) {
-  .container {
-    margin: 120px 20px 50px;
-  }
+.totalMobilePayment h3 {
+  font-size: 16px;
+}
+
+.totalMobilePayment p {
+  font-size: 20px;
+  color: #167d32;
+  font-weight: bold;
+}
+
+.buttonContainerMobile {
+  display: flex;
+  align-items: center;
+}
+
+.clearMobile {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #eee;
 }

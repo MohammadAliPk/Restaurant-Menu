@@ -37,7 +37,7 @@ const ShopCart = () => {
       </div>
       <div className={styles.container}>
         <Row>
-          <Col xs={9}>
+          <Col xs={9} className={styles.totalContainer}>
             {state.itemsCounter > 0 && (
               <div className={styles.total}>
                 <div className={styles.totalPayment}>
@@ -65,7 +65,7 @@ const ShopCart = () => {
               </div>
             )}
           </Col>
-          <Col xs={15}>
+          <Col xs={24} md={15}>
             <div className={styles.receipt}>
               {state.selectedItems.length > 0 ? (
                 <div className={styles.cartContainer}>
@@ -77,6 +77,34 @@ const ShopCart = () => {
             </div>
           </Col>
         </Row>
+        {/* mobile payment */}
+        <div className={styles.totalMobile}>
+          <div className={styles.totalMobilePaymentContainer}>
+            <div className={styles.totalMobilePayment}>
+              <h3>تعداد سفارشات</h3>
+              <p>{state.itemsCounter}</p>
+              <h3>مجموع سفارشات</h3>
+              <div>
+                <p>{state.total}</p>
+                <span className={styles.hezarToman}>
+                  هــــزار
+                  <br />
+                  تـــومان
+                </span>
+              </div>
+            </div>
+            <div className={styles.buttonContainerMobile}>
+              <button
+                onClick={() => dispatch(clear())}
+                className={styles.clearMobile}
+              >
+                <img src={trashIcon} alt="trash" />
+                <p>پاک کردن همه</p>
+              </button>
+            </div>
+          </div>
+        </div>
+
         {state.itemsCounter === 0 && !state.checkout && (
           <div className={styles.emptyCart}>
             <h3>یادداشت سفارشات خالی می باشد</h3>

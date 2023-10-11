@@ -96,7 +96,6 @@
   height: 60px;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   overflow: hidden;
 }
 
@@ -136,10 +135,6 @@
 }
 
 @media (max-width: 470px) {
-  .container {
-    flex-direction: column;
-  }
-
   .productImage {
     width: 150px;
   }
@@ -154,10 +149,6 @@
 
   .data p {
     margin: 20px 0 30px;
-  }
-
-  .quantity {
-    margin: 0 0 10px;
   }
 
   .buttonContainer {

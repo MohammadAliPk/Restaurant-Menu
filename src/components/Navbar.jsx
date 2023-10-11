@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-scroll";
+import { Link as LinkRouter } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Pagination } from "swiper/modules";
@@ -23,7 +24,7 @@ const Navbar = () => {
   const testArray = [1, 2, 3, 4, 5, 6];
 
   return (
-    <>
+    <nav>
       <div className={styles.cartHeader}>
         <div className={styles.logoContainer}>
           <img src={LogoImg} alt="logo" />
@@ -32,7 +33,7 @@ const Navbar = () => {
             <span>Republic</span>
           </p>
         </div>
-        <Link to="/cart">یادداشت سفارش</Link>
+        <LinkRouter to="/cart">یادداشت سفارش</LinkRouter>
       </div>
       <Swiper
         slidesPerView={"auto"}
@@ -59,7 +60,7 @@ const Navbar = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </nav>
   );
 };
 
