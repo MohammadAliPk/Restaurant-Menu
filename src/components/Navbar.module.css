@@ -37,6 +37,7 @@ nav {
   text-align: center;
   height: 150px;
   width: 135px !important;
+  cursor: pointer;
 }
 
 .swiperItem img {
@@ -57,7 +58,7 @@ nav {
   text-align: center;
   height: 150px !important;
   width: 135px !important;
-  border: 3px dashed #d9d9d9 !important;
+  border: 2px dashed #d9d9d9 !important;
   display: block !important;
 }
 

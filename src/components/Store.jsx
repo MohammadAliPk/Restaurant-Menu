@@ -158,9 +158,16 @@ const Store = () => {
           "loading..."
         )}
       </Modal>
-      <section id="3">ABOUT</section>
-      <div style={{ height: "500px" }}></div>
-      <section id="2">ABOUT</section>
+      <section id="3" style={{ height: "500px" }}>
+        3
+      </section>
+      <section id="2" style={{ height: "500px" }}>
+        2
+      </section>
+      <section id="1" style={{ height: "500px" }}>
+        1
+      </section>
+      <div style={{ height: "200px" }}></div>
     </div>
   );
 };

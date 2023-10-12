@@ -1,18 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Link as LinkRouter } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import styles from "./Navbar.module.css";
-import icon from "../assets/icons/icons.png";
+import icon from "../assets/icons/pizza.png";
 import LogoImg from "../assets/images/logo.png";
 
-SwiperCore.use([Pagination]);
-
 const Navbar = () => {
+  const swiper = useSwiper();
+
   const swiperRef = useRef(null);
 
   const handleItemClick = (item) => {
@@ -21,7 +20,11 @@ const Navbar = () => {
     }
   };
 
-  const testArray = [1, 2, 3, 4, 5, 6];
+  const handleSetActive = (item) => {
+    console.log(item);
+  };
+
+  const testArray = [1, 2, 3, 4];
 
   return (
     <nav>
@@ -38,7 +41,7 @@ const Navbar = () => {
       <Swiper
         slidesPerView={"auto"}
         centeredSlides={true}
-        spaceBetween={30}
+        spaceBetween={20}
         modules={[Pagination]}
         className="mySwiper"
         id={styles.swiper}
@@ -49,13 +52,15 @@ const Navbar = () => {
             <Link
               className={styles.link}
               activeClass={styles.active}
+              onSetActive={() => handleItemClick(item)}
               smooth
               spy
               to={item}
-              onClick={() => handleItemClick(item)}
+              duration={500}
+              // onClick={() => handleItemClick(item)}
             >
               <img src={icon} alt="icon" />
-              <div className={styles.info}>تخم ها</div>
+              <div className={styles.info}>پیتزا</div>
             </Link>
           </SwiperSlide>
         ))}
