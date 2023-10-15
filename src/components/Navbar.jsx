@@ -10,18 +10,12 @@ import icon from "../assets/icons/pizza.png";
 import LogoImg from "../assets/images/logo.png";
 
 const Navbar = () => {
-  const swiper = useSwiper();
-
   const swiperRef = useRef(null);
 
   const handleItemClick = (item) => {
     if (swiperRef.current) {
       swiperRef.current.swiper.slideTo(item - 1);
     }
-  };
-
-  const handleSetActive = (item) => {
-    console.log(item);
   };
 
   const testArray = [1, 2, 3, 4];
