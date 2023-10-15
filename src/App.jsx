@@ -8,6 +8,7 @@ import ShopCart from "./components/ShopCart";
 // Redux
 import store from "./apps/store";
 import Login from "./components/Login";
+import Admin from "./components/Admin";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products" component={Store} />
         <Route path="/cart" component={ShopCart} />
         <Route path="/login" component={Login} />
+        <Route path="/Admin" component={Admin} />
         <Redirect to="/products" />
       </Switch>
     </Provider>
