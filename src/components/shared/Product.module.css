@@ -136,6 +136,7 @@
   height: 100%;
   top: 0;
   right: 0;
+  border-radius: 0 0 0 15px;
 }
 
 @media only screen and (min-width: 990px) {
@@ -174,6 +175,7 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 0 0 0 15px;
 }
 
 .productFooterMobile {

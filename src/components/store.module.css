@@ -1,6 +1,6 @@
 @font-face {
   font-family: iranSans;
-  src: url(../assets/fonts/Sans\ a4fran3.ttf);
+  src: url(../assets/fonts/Sansa4fran3.ttf);
 }
 
 * {
@@ -20,6 +20,7 @@
 .productContainer {
   max-width: 1200px;
   margin: auto;
+  padding: 220px 0;
 }
 
 /*---- modal image loader ----*/

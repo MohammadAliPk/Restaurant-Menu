@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 // ant design
 import { Button, Image, Modal, Row } from "antd";
@@ -8,6 +7,7 @@ import { Button, Image, Modal, Row } from "antd";
 // Components
 import Product from "./shared/Product";
 import Loader from "./shared/Loader";
+import Navbar from "./Navbar";
 
 // redux
 import { fetchProducts } from "../features/products/productsSlice";
@@ -57,12 +57,15 @@ const Store = () => {
 
   return (
     <div className={styles.productBody}>
+      <section id="4">ABOUT</section>
+
       {productsState.loading ? (
         <Loader />
       ) : productsState.error ? (
         <p>Somethin went wrong</p>
       ) : (
         <>
+          <Navbar />
           <div className={styles.productContainer}>
             <Row gutter={[15, 15]} className={styles.row}>
               {productsState.products.map((product) => (
@@ -155,6 +158,16 @@ const Store = () => {
           "loading..."
         )}
       </Modal>
+      <section id="3" style={{ height: "500px" }}>
+        3
+      </section>
+      <section id="2" style={{ height: "500px" }}>
+        2
+      </section>
+      <section id="1" style={{ height: "500px" }}>
+        1
+      </section>
+      <div style={{ height: "200px" }}></div>
     </div>
   );
 };
